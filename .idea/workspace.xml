@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fb9e2a0-ad99-41f9-9fed-97567f66b701" name="Changes" comment="getting started">
+    <list default="true" id="2fb9e2a0-ad99-41f9-9fed-97567f66b701" name="Changes" comment="getting b&amp;w">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pillanalyser/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pillanalyser/menu.fxml" afterDir="false" />
@@ -85,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1707308962469</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="getting b&amp;w">
+      <created>1708452141574</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1708452141574</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,7 +108,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="getting started" />
-    <option name="LAST_COMMIT_MESSAGE" value="getting started" />
+    <MESSAGE value="getting b&amp;w" />
+    <option name="LAST_COMMIT_MESSAGE" value="getting b&amp;w" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -110,7 +118,17 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/pillanalyser/Menu.java</url>
+          <line>229</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PillAnalyser$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1708532911290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.pillanalyser.*</FILTER>
+    </SUITE>
   </component>
 </project>
