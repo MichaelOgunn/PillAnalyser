@@ -30,5 +30,7 @@
       <Button layoutX="1007.0" layoutY="55.0" mnemonicParsing="false" onAction="#imgLoader" text="Load Image" />
       <Button layoutX="1021.0" layoutY="133.0" mnemonicParsing="false" onAction="#convertImageToBandW" text="black and white" />
       <Slider fx:id="thresholdSlider" layoutX="990.0" layoutY="234.0" />
+      <Button layoutX="1034.0" layoutY="288.0" mnemonicParsing="false" onAction="#reset" text="reset" />
+      <Button layoutX="1034.0" layoutY="349.0" mnemonicParsing="false" onAction="#disJoinSelection" text="group pills" />
    </children>
 </AnchorPane>

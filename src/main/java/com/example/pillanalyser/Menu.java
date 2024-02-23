@@ -120,40 +120,75 @@ public class Menu {
 
 
 
-                recordSelectedPill(sampledColor, imageX, imageY);// Implement this method
-                processPillSelection(imageX, imageY);
+//                recordSelectedPill(sampledColor, imageX, imageY);// Implement this method
+//                processPillSelection(imageX, imageY);
                 displayPillsSelected();
 
 
             }
 
     }
+    /**
+     * The `disJoinSelection` method processes an image by checking neighboring pixels and performing unions based on a
+     * threshold condition.
+     *
+     * @param event The `event` parameter in the `disJoinSelection` method is of type `ActionEvent`. This parameter is
+     * commonly used in JavaFX applications to represent an event that occurred, such as a button click or menu selection.
+     * In this method, the `event` parameter is likely used to trigger the
+     */
+    public void disJoinSelection(ActionEvent event) {
+        Image img = originalImage.getImage();
+        if (img != null) {
+            int width = (int)img.getWidth();
+            int height = (int)img.getHeight();
+            for (int y= 0; y< height; y++) {
+                for (int x = 0; x < width; x++) {
+                    int index = y * width + x;
+                    if (pixelArray[index]!= -1) {
 
+                        // The condition `if (x+1 < width && y+1 < height && pixelArray[index+1]!= -1 )` is checking if the
+                        // pixel to the right of the current pixel (in the same row) is within the image boundaries and if
+                        // it is not part of the background (pixelArray[index+1] != -1). This condition is used in the
+                        // `disJoinSelection` method to determine if the current pixel should be unioned with its right
+                        // neighbor pixel based on the threshold set in the image processing.
+                        if (x+1 < width && y+1 < height && pixelArray[index+1]!= -1 ){
+                            unionFind.union(pixelArray, index,index+1);
+                        }
+                        if (index + width <pixelArray.length && pixelArray[index + width]!= -1) {
+                            unionFind.union(pixelArray, index, index + width);
+                        }
+                    }
 
-    private void recordSelectedPill (Color pixelColor, double imageX, double imageY) {
-
-//        String positionKey = String.format("%.2f,%.2f", imageX, imageY);
-        String positionKey = (int)imageX + "," + (int) imageY;
-        colorMap.put(positionKey, pixelColor);
-        unionFind.parent.put(positionKey, positionKey);
+                }
+            }
+        }
     }
-    private void processPillSelection( double imageX, double imageY) {
 
-//        String positionKey = String.format("%.2f,%.2f", imageX, imageY);
-//        Color selectedColor = colorMap.get(positionKey);
-//        for (int dx = -1; dx <= 1; dx++) {
-//            for (int dy = -1; dy <= 1; dy++) {
-//                if (dx == 0 && dy == 0) {
-//                    continue;
-//                }
-////                String neighborPositionKey = String.format("%.2f,%.2f", imageX + dx, imageY + dy);
-//                Color neighborColor = colorMap.get(neighborPositionKey);
-//                if (neighborColor!= null &&!neighborColor.equals(selectedColor)) {
-//                    unionFind.union(positionKey, neighborPositionKey);
-//                }
-//            }
-//        }
-    }
+
+//    private void recordSelectedPill (Color pixelColor, double imageX, double imageY) {
+//
+////        String positionKey = String.format("%.2f,%.2f", imageX, imageY);
+//        String positionKey = (int)imageX + "," + (int) imageY;
+//        colorMap.put(positionKey, pixelColor);
+//        unionFind.parent.put(positionKey, positionKey);
+//    }
+//    private void processPillSelection( double imageX, double imageY) {
+//
+////        String positionKey = String.format("%.2f,%.2f", imageX, imageY);
+////        Color selectedColor = colorMap.get(positionKey);
+////        for (int dx = -1; dx <= 1; dx++) {
+////            for (int dy = -1; dy <= 1; dy++) {
+////                if (dx == 0 && dy == 0) {
+////                    continue;
+////                }
+//////                String neighborPositionKey = String.format("%.2f,%.2f", imageX + dx, imageY + dy);
+////                Color neighborColor = colorMap.get(neighborPositionKey);
+////                if (neighborColor!= null &&!neighborColor.equals(selectedColor)) {
+////                    unionFind.union(positionKey, neighborPositionKey);
+////                }
+////            }
+////        }
+//    }
 //    List<Integer> disjointSets= new ArrayList<>();
 
     public void selectPill(Rectangle r) {
@@ -198,11 +233,14 @@ public class Menu {
         originalImage.setImage(writableImage);
 
     }
-    public void displayPillsSelected() {
+    public void reset(){
+        ((Pane) originalImage.getParent()).getChildren().removeIf(r -> r instanceof Rectangle);
+    }
+    public void displayPillsoldSelected() {
         if (colorMap != null) {
             // Remove existing rectangles and labels
             ((Pane) originalImage.getParent()).getChildren().removeIf(r -> r instanceof Rectangle);
-            ((Pane) originalImage.getParent()).getChildren().removeIf(r -> r instanceof Label);
+
 
             // Iterate over the pixels and identify the pills
             this.allPillsPixels = new HashMap<>();
@@ -232,27 +270,116 @@ public class Menu {
                 // attempting to calculate the top position of a pill based on the minimum pixel value in the list
                 // of pixels associated with a particular pill root, divided by the width of the original picture.
                 List<Integer> pixels = allPillsPixels.get(root);
-                top = Collections.min(allPillsPixels.get(root)) / (int) originalPicture.getWidth();
-                bottom = Collections.max(allPillsPixels.get(root)) / (int) originalPicture.getWidth();
-                left = Collections.min(allPillsPixels.get(root), (a, b) -> a % imageWidth - b % imageWidth) % imageWidth;//negative if a should come before b and pos if a comes after, zero if theyre the same
-                right = Collections.max(allPillsPixels.get(root), (a, b) -> a % imageWidth - b % imageWidth) % imageWidth;
-                if (root != -1) {
-                    top *= scaleX;
-                    right *= scaleY;
-                    bottom *= scaleX;
-                    left *= scaleY;
-                    double centerX = (left + right) / 2;
-                    double centerY = (top + bottom) / 2;
+                if (!pixels.isEmpty()) {
+                    double minX = Double.MAX_VALUE;
+                    double minY = Double.MAX_VALUE;
+                    double maxX = Double.MIN_VALUE;
+                    double maxY = Double.MIN_VALUE;
 
+                    for (int pixelIndex : pixels) {
+                        int x = pixelIndex % imageWidth;
+                        int y = pixelIndex / imageWidth;
 
-                    Rectangle rectangle = new Rectangle(centerX, centerY, 1, 1);
+                        minX = Math.min(minX, x);
+                        minY = Math.min(minY, y);
+                        maxX = Math.max(maxX, x);
+                        maxY = Math.max(maxY, y);
+                    }
 
+                    double centerX = (minX + maxX) / 2;
+                    double centerY = (minY + maxY) / 2;
+                    double width = maxX - minX + 1;
+                    double height = maxY - minY + 1;
+
+                    // Create rectangle based on the calculated boundaries
+                    Rectangle rectangle = new Rectangle(centerX, centerY, width, height);
+                    rectangle.setFill(Color.TRANSPARENT);
+                    rectangle.setStroke(Color.RED);
+                    rectangle.setStrokeWidth(1);
                     rectangle.onMouseClickedProperty().set(e -> selectPill(rectangle));
-                    System.out.println("here4");
+                    ((Pane) originalImage.getParent()).getChildren().add(rectangle);
                 }
             }
         }
     }
+    public void displayPillsSelected() {
+        if (colorMap != null) {
+            // Remove existing rectangles and labels
+            ((Pane) originalImage.getParent()).getChildren().removeIf(r -> r instanceof Rectangle);
+            ((Pane) originalImage.getParent()).getChildren().removeIf(r -> r instanceof Label);
+
+            // Iterate over the pixels and identify the pills
+            this.allPillsPixels = new HashMap<>();
+            int imageWidth = (int) originalPicture.getWidth();
+            int imageHeight = (int) originalPicture.getHeight();
+
+            for (int i = 0; i < pixelArray.length; i++) {
+                int root = unionFind.find(pixelArray, i);
+                if (root != -1) {
+                    if (!allPillsPixels.containsKey(root)) {
+                        allPillsPixels.put(root, new ArrayList<>());
+                    }
+                    allPillsPixels.get(root).add(i);
+                }
+            }
+
+            for (int root : allPillsPixels.keySet()) {
+                List<Integer> pixels = allPillsPixels.get(root);
+                int minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE;
+                int maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE;
+
+                // Find the bounding box of the pill
+                for (int pixel : pixels) {
+                    int x = pixel % imageWidth;
+                    int y = pixel / imageWidth;
+                    minX = Math.min(minX, x);
+                    minY = Math.min(minY, y);
+                    maxX = Math.max(maxX, x);
+                    maxY = Math.max(maxY, y);
+                }
+
+                // Calculate the center of the bounding box
+                double centerX = (minX + maxX) / 2.0;
+                double centerY = (minY + maxY) / 2.0;
+                double width = maxX - minX + 1;
+                double height = maxY - minY + 1;
+
+                // Create rectangle based on the calculated boundaries
+                Rectangle rectangle = new Rectangle(centerX, centerY, width, height);
+
+
+                rectangle.setOnMouseClicked(e -> selectPill(rectangle));
+                rectangle.setFill(Color.TRANSPARENT);
+                rectangle.setStroke(Color.BLUE);
+                rectangle.setStrokeWidth(1);
+
+                // Add the rectangle to the pane
+                ((Pane) originalImage.getParent()).getChildren().add(rectangle);
+            }
+        }
+    }
+
+//    public void selectPill(Rectangle r) {
+//        // Get the position of the rectangle
+//        double rectangleX = r.getX();
+//        double rectangleY = r.getY();
+//
+//        // Iterate through the pixels within the bounding box of the rectangle
+//        for (int y = (int) rectangleY; y < rectangleY + r.getHeight(); y++) {
+//            for (int x = (int) rectangleX; x < rectangleX + r.getWidth(); x++) {
+//                int index = y * (int) originalPicture.getWidth() + x;
+//                int root = unionFind.find(pixelArray, index);
+//                if (root != -1) {
+//                    // Get the color associated with the root and set it to the corresponding pixel in the new image
+//                    Color color = colorMap.get(root);
+//                    if (color != null) {
+//                        processedImage.getImage().getPixelWriter().setColor(x, y, color);
+//                    }
+//                }
+//            }
+//        }
+//    }
+
 
 
 
@@ -260,9 +387,7 @@ public class Menu {
 
 
         Rectangle rectangle = new Rectangle(x, y, 1, 1);
-        rectangle.setFill(Color.TRANSPARENT);
-        rectangle.setStroke(Color.RED);
-        rectangle.setStrokeWidth(2);
+
         return rectangle;
     }
 
