@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fb9e2a0-ad99-41f9-9fed-97567f66b701" name="Changes" comment="union find attempt 2">
+    <list default="true" id="2fb9e2a0-ad99-41f9-9fed-97567f66b701" name="Changes" comment="rectangle over pill working need to associate rectangle with associated color">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/ColourFinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/PillApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/pillanalyser/pill temp.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/UnionFind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/UnionFind.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pillanalyser/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pillanalyser/menu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,21 +39,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/skatz/OneDrive - South East Technological University (Waterford Campus)/data Structure/PillAnalyser/src/main/java/com/example/pillanalyser&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/skatz/OneDrive - South East Technological University (Waterford Campus)/Second Year/Semester2/dataStructure2/PillAnalyser&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_directory_selection": "C:/Users/skatz/OneDrive - South East Technological University (Waterford Campus)/data Structure/PillAnalyser/src/main/java/com/example/pillanalyser",
+    "last_opened_file_path": "C:/Users/skatz/OneDrive - South East Technological University (Waterford Campus)/Second Year/Semester2/dataStructure2/worksheet1"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="com.example.pillanalyser.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.pillanalyser.HelloApplication" />
       <module name="PillAnalyser" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.pillanalyser.*" />
+          <option name="PATTERN" value="com.example.pillanalyser.PillApi" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -58,7 +64,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="Application.com.example.pillanalyser.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -99,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1708604742845</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="union find working getting the rectangle working but few bugs to be fixed">
+      <created>1708684408325</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1708684408325</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,17 +130,16 @@
     <MESSAGE value="getting started" />
     <MESSAGE value="getting b&amp;w" />
     <MESSAGE value="union find attempt 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="union find attempt 2" />
+    <MESSAGE value="union find working getting the rectangle working but few bugs to be fixed" />
+    <MESSAGE value="rectangle over pill working need to associate rectangle with associated color" />
+    <option name="LAST_COMMIT_MESSAGE" value="rectangle over pill working need to associate rectangle with associated color" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.util.HashMap$Node" memberName="key" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/PillAnalyser$HelloApplication.ic" NAME="HelloApplication Coverage Results" MODIFIED="1708532911290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
