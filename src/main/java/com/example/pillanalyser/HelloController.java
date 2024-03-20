@@ -15,9 +15,11 @@ public class HelloController {
     @FXML
     protected void onButtonClick() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("menu - Copy.fxml"));
             Parent root = loader.load();
             Scene nextScene = new Scene(root);
+
+
             Stage stage = (Stage) getStarted.getScene().getWindow();
             stage.setScene(nextScene);
             stage.show();

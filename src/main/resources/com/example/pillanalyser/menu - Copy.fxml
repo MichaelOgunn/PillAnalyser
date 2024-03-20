@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="427.0" prefWidth="719.0" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pillanalyser.Menu">
+   <children>
+      <Button layoutX="52.0" layoutY="14.0" mnemonicParsing="false" onAction="#imgLoader" text="Load Image" />
+      <Button layoutX="41.0" layoutY="137.0" mnemonicParsing="false" onAction="#convertImageToBandW" text="black and white" />
+      <Slider fx:id="thresholdSlider" layoutX="36.0" layoutY="176.0" />
+      <Button layoutX="72.0" layoutY="281.0" mnemonicParsing="false" onAction="#reset" text="reset" />
+      <ImageView fx:id="originalImage" fitHeight="150.0" fitWidth="200.0" layoutX="242.0" layoutY="93.0" onMouseClicked="#enablePillSelection" pickOnBounds="true" />
+      <ImageView fx:id="processedImage" fitHeight="150.0" fitWidth="200.0" layoutX="483.0" layoutY="97.0" pickOnBounds="true" />
+      <Button layoutX="49.0" layoutY="322.0" mnemonicParsing="false" onAction="#randomiseColour" text="random color" />
+      <RadioButton fx:id="selectpill" layoutX="39.0" layoutY="49.0" mnemonicParsing="false" text="select pills to analyse" />
+      <Slider fx:id="sizeSlider" layoutX="448.0" layoutY="98.0" orientation="VERTICAL" />
+      <RadioButton fx:id="findpill" layoutX="46.0" layoutY="78.0" mnemonicParsing="false" text="find pill by color" />
+      <Slider fx:id="maxSizeSlider" layoutX="673.0" layoutY="98.0" orientation="VERTICAL" />
+      <RadioButton fx:id="twoColoredPill" layoutX="39.0" layoutY="108.0" mnemonicParsing="false" text="select 2 colored pill" />
+      <ColorPicker fx:id="colorPicker1" layoutX="37.0" layoutY="207.0" />
+      <ColorPicker fx:id="colorPicker2" layoutX="35.0" layoutY="241.0" />
+      <Label fx:id="statusLabel" layoutX="262.0" layoutY="26.0" text="pill Root difference" />
+      <Slider fx:id="brightnessSlider" layoutX="282.0" layoutY="278.0" />
+      <Slider fx:id="saturationSlider" layoutX="282.0" layoutY="310.0" />
+      <Slider fx:id="hueSlider" layoutX="282.0" layoutY="348.0" />
+      <TextArea fx:id="pillDetails" layoutX="473.0" layoutY="288.0" prefHeight="87.0" prefWidth="211.0" promptText="pill number " />
+      <Button layoutX="401.0" layoutY="14.0" mnemonicParsing="false" onAction="#make2Pill" text="2 color pill " />
+      <Button layoutX="37.0" layoutY="373.0" mnemonicParsing="false" onAction="#pillColor" text="original pill color " />
+      <TextField fx:id="pillsName" layoutX="492.0" layoutY="380.0" promptText="Pill Name" />
+   </children>
+</AnchorPane>

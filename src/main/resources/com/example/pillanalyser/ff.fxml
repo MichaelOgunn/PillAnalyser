@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="390.0" prefWidth="704.0" stylesheets="@CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pillanalyser.Menu">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" spacing="10" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <Button fx:id="loadImageButton" mnemonicParsing="false" onAction="#imgLoader" text="Load Image" />
+         <RadioButton fx:id="selectPillRadioButton" mnemonicParsing="false" text="Select pills to analyse" />
+         <RadioButton fx:id="findPillByColorRadioButton" mnemonicParsing="false" text="Find pill by color" />
+         <RadioButton fx:id="selectTwoColoredPillRadioButton" mnemonicParsing="false" text="Select 2 colored pill" />
+         <Button mnemonicParsing="false" onAction="#convertImageToBandW" text="Black and White" />
+         <Slider fx:id="thresholdSlider" />
+         <Button mnemonicParsing="false" onAction="#reset" text="Reset" />
+         <Button mnemonicParsing="false" onAction="#randomiseColour" text="Random Color" />
+      </VBox>
+      <GridPane layoutX="200.0" layoutY="14.0" AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <ImageView fx:id="originalImage" GridPane.columnIndex="0" GridPane.rowIndex="0" onMouseClicked="#enablePillSelection" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="processedImage" GridPane.columnIndex="1" GridPane.rowIndex="0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </GridPane>
+      <HBox layoutX="200.0" layoutY="350.0" spacing="10" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <Label fx:id="statusLabel" text="Status" />
+         <Slider fx:id="brightnessSlider" />
+         <Slider fx:id="saturationSlider" />
+         <Slider fx:id="hueSlider" />
+      </HBox>
+      <TextArea layoutX="200.0" layoutY="250.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="50.0"/>
+      <HBox layoutX="14.0" layoutY="300.0" spacing="10" AnchorPane.leftAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+         <ColorPicker fx:id="colorPicker1" promptText="Color 1" />
+         <ColorPicker fx:id="colorPicker2" promptText="Color 2" />
+      </HBox>
+   </children>
+</AnchorPane>

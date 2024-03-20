@@ -1,0 +1,60 @@
+.root {
+  -fx-font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+  -fx-background-color: #fff0f0; /* Light pastel pink background */
+}
+
+.button {
+  -fx-font-size: 14px;
+  -fx-font-weight: bold;
+  -fx-background-color: #ffab91; /* Pastel red */
+  -fx-text-fill: #ffffff;
+  -fx-background-radius: 20; /* Rounded corners */
+  -fx-padding: 10px 20px;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.button:hover {
+  -fx-background-color: #ff8a65; /* Slightly darker shade for hover */
+}
+
+.radio-button {
+  -fx-padding: 10px;
+  -fx-font-size: 12px;
+  -fx-text-fill: #616161; /* Grey text for readability */
+}
+
+.radio-button .dot {
+  -fx-background-color: #ffccbc; /* Light pastel red dot */
+}
+
+.slider {
+  -fx-padding: 15px;
+}
+
+.slider .track {
+  -fx-background-color: #ffccbc; /* Light pastel red track */
+  -fx-background-radius: 10;
+}
+
+.slider .thumb {
+  -fx-background-color: #ffab91; /* Pastel red thumb */
+}
+
+.color-picker {
+  -fx-background-radius: 5;
+  -fx-padding: 5px;
+}
+
+.label {
+  -fx-font-size: 12px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #616161; /* Grey text for labels */
+}
+
+.canvas {
+  -fx-border-color: #ffab91; /* Pastel red border */
+  -fx-border-insets: 5;
+  -fx-border-width: 3;
+  -fx-border-style: solid;
+  -fx-background-color: #ffebee; /* Very light pastel pink background */
+}
