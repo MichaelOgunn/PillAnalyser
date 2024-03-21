@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2fb9e2a0-ad99-41f9-9fed-97567f66b701" name="Changes" comment="all working can now pick colours before performing hsb">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/MulticoloredPill.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/pillanalyser/PillTest.java" afterDir="false" />
+    <list default="true" id="2fb9e2a0-ad99-41f9-9fed-97567f66b701" name="Changes" comment="all working can now pick colours before performing hsb rectangles sequential working and test working  70% there">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/BenchMark.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/ColourFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/ColourFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/PillApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/PillApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pillanalyser/back ground email.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pillanalyser/back ground email.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pillanalyser/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pillanalyser/menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/pillanalyser/pill temp.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/pillanalyser/pill temp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/UnionFind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/pillanalyser/UnionFind.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +19,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -50,7 +45,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_directory_selection": "C:/Users/skatz/OneDrive - South East Technological University (Waterford Campus)/data Structure/PillAnalyser/src/main/java/com/example/pillanalyser",
-    "last_opened_file_path": "C:/Users/skatz/OneDrive - South East Technological University (Waterford Campus)/Second Year/Semester2/dataStructure2/worksheet2",
+    "last_opened_file_path": "C:/Users/skatz/OneDrive - South East Technological University (Waterford Campus)/data Structure/LondonUndergroundRouteFinder",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2"
@@ -67,7 +62,7 @@
       <recent name="com.example.pillanalyser" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ColourFinderTest.getPixelColour">
+  <component name="RunManager" selected="Application.com.example.pillanalyser.HelloApplication">
     <configuration name="com.example.pillanalyser.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.pillanalyser.HelloApplication" />
       <module name="PillAnalyser" />
@@ -130,10 +125,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.com.example.pillanalyser.HelloApplication" />
+        <item itemvalue="JUnit.UnionFindTest" />
         <item itemvalue="JUnit.ColourFinderTest.getPixelColour" />
         <item itemvalue="JUnit.PillApiTest.addPill" />
-        <item itemvalue="JUnit.UnionFindTest" />
-        <item itemvalue="Application.com.example.pillanalyser.HelloApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1709737836921</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="all working can now pick colours before performing hsb rectangles sequential working and test working  70% there">
+      <created>1710950924576</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1710950924576</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -216,7 +218,8 @@
     <MESSAGE value="union find working getting the rectangle working but few bugs to be fixed" />
     <MESSAGE value="rectangle over pill working need to associate rectangle with associated color" />
     <MESSAGE value="all working can now pick colours before performing hsb" />
-    <option name="LAST_COMMIT_MESSAGE" value="all working can now pick colours before performing hsb" />
+    <MESSAGE value="all working can now pick colours before performing hsb rectangles sequential working and test working  70% there" />
+    <option name="LAST_COMMIT_MESSAGE" value="all working can now pick colours before performing hsb rectangles sequential working and test working  70% there" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

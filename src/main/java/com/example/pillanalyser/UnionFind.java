@@ -21,8 +21,13 @@ public class UnionFind {
         a[find(a,q)]=find(a, p);
     }
     public static int find(int[] a, int id) {
+//        if (a[id] != id){
+//            a[id] = find(a, a[id]);  // Path compression by halving
+//        return a[id];
+//        }
         if(a[id]<0 ) return a[id];
         if(a[id] == id) return id;
+
         else return find(a, a[id]);
 
     }
